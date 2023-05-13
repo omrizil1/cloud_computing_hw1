@@ -13,16 +13,16 @@
         "GroupDescription": "Access my instances",
         "SecurityGroupIngress": [
           {
-            "CidrIp": { "Fn::Sub": "${AWS::CloudFormation::Init.Metadata.myIP}/32" },
+            "CidrIp": { "Fn::Sub": "${myIP}/32" },
             "IpProtocol": "tcp",
             "FromPort": 22,
             "ToPort": 22
           },
           {
-            "CidrIp": { "Fn::Sub": "${AWS::CloudFormation::Init.Metadata.myIP}/32" },
+            "CidrIp": { "Fn::Sub": "${myIP}/32" },
             "IpProtocol": "tcp",
-            "FromPort": 80,
-            "ToPort": 80
+            "FromPort": 8000,
+            "ToPort": 8000
           }
         ]
       }
@@ -43,7 +43,7 @@
               "git clone https://github.com/omrizil1/cloud_computing_hw1.git /home/ubuntu/your-app",
               "cd /home/ubuntu/your-app",
               "npm install",
-              "nohup npm start &> /dev/null &"
+              "nohup node app.js &> /dev/null &"
             ]
           ]}
         }
