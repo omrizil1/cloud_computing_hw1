@@ -52,8 +52,7 @@
   },
   "Parameters": {
     "myIP": {
-      "Type": "String",
-      "Default": "$(curl ipinfo.io/ip)"
+      "Type": "String"
     }
   }
 }
